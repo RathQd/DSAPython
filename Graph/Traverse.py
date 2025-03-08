@@ -30,10 +30,13 @@ class Traverse:
             if self.visited_list[node[0]] == NOT_VISITED:
                 self.dfs(node[0])
 
-t = Traverse()
-# t.bfs(start_node=4)
+
+tbfs = Traverse()
+tbfs.bfs(start_node=4) #(O(N) for recursion call + O(2E) visiting each neighbors)
+
+tdfs = Traverse()
 print("DFS Order : ")
-t.dfs(start_node=6)
+tdfs.dfs(start_node=6) # (O(N) for recursion call + O(2E) visiting each neighbors)
 
 
 
