@@ -14,17 +14,26 @@ class Traverse:
         self.visited_list[start_node] = VISITED
         q = Queue()
         q.put([start_node, 1])
-
+        print("BFS Order with Starting Node", start_node)
         while not q.empty():
             element = q .get()[0]
-            print(element)
+            print(element, end = " ")
             for neighbor in self.graph.graph_using_list[element]:
                 if self.visited_list[neighbor[0]] == NOT_VISITED:
                     self.visited_list[neighbor[0]] = VISITED
                     q.put(neighbor)
+    
+    def dfs(self, start_node = 1):
+        self.visited_list[start_node] = VISITED
+        print(start_node, end=" ")
+        for node in self.graph.graph_using_list[start_node]:
+            if self.visited_list[node[0]] == NOT_VISITED:
+                self.dfs(node[0])
 
 t = Traverse()
-t.bfs()
+# t.bfs(start_node=4)
+print("DFS Order : ")
+t.dfs(start_node=6)
 
 
 
