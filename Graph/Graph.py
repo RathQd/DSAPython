@@ -68,8 +68,8 @@ def create_sample_graph_for_component():
 
     graph.add_edge_in_list(1,2)
     graph.add_edge_in_list(2,3)
-    # graph.add_edge_in_list(4,5)
-    # graph.add_edge_in_list(5,6)
+    graph.add_edge_in_list(4,5)
+    graph.add_edge_in_list(5,6)
     graph.add_edge_in_list(6,7)
     graph.add_edge_in_list(4,7)
     graph.add_edge_in_list(8,9)
