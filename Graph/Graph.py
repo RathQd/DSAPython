@@ -65,7 +65,9 @@ def create_sample_graph_for_component():
     graph.add_edge_in_list(6,7)
     graph.add_edge_in_list(4,7)
     graph.add_edge_in_list(8,9)
+    graph.add_edge_in_list(5,7)
     graph.add_edge_in_list(10,9)
+    graph.add_edge_in_list(10,8)
     return graph
 
 def create_sample_graph_for_cycle():
