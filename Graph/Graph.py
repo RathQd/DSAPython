@@ -57,15 +57,7 @@ def create_sample_graph_for_component():
     no_of_nodes = 10
 
     graph = Graph(no_of_nodes)
-
-    # graph.add_edge_in_matrix(1,2)
-    # graph.add_edge_in_matrix(2,3)
-    # graph.add_edge_in_matrix(2,4)
-    # graph.add_edge_in_matrix(1,5)
-    # graph.add_edge_in_matrix(4,5)
-
-    # graph.display_graph_as_matrix()
-
+    
     graph.add_edge_in_list(1,2)
     graph.add_edge_in_list(2,3)
     graph.add_edge_in_list(4,5)
@@ -74,4 +66,22 @@ def create_sample_graph_for_component():
     graph.add_edge_in_list(4,7)
     graph.add_edge_in_list(8,9)
     graph.add_edge_in_list(10,9)
+    return graph
+
+def create_sample_graph_for_cycle():
+    no_of_nodes = 8
+
+    graph = Graph(no_of_nodes)
+    
+    graph.add_edge_in_list(1,2)
+    graph.add_edge_in_list(1,3)
+    graph.add_edge_in_list(2,5)
+    graph.add_edge_in_list(5,6)
+    # graph.add_edge_in_list(3,1)
+    graph.add_edge_in_list(3,4)
+    # graph.add_edge_in_list(3,6)
+    graph.add_edge_in_list(5,7)
+    # graph.add_edge_in_list(6,3)
+    graph.add_edge_in_list(6,7)
+
     return graph
