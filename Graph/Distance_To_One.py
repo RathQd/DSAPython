@@ -7,10 +7,12 @@ class Distance_To_One:
     def __init__(self):
         self.mat0 = [[0,0,0], [0,1,0], [1,0,1]]
         self.visited_list0 = [[0] * len(self.mat0[0]) for _ in range(len(self.mat0))]
-        self.distance1 = [[0] * len(self.mat0[0]) for _ in range(len(self.mat0))]
+        self.distance0 = [[0] * len(self.mat0[0]) for _ in range(len(self.mat0))]
 
-        self.mat1 = [[0,1,2], [0,1,2], [2,1,1]]
+        self.mat1 = [[0,0,0], [0,0,0], [0,0,1]]
         self.visited_list1 = [[0]* len(self.mat1[0]) for _ in range(len(self.mat1))]
+        self.distance1 = [[0]* len(self.mat1[0]) for _ in range(len(self.mat1))]
+
         self.mat2 = [[0,1,2], [0,1,1], [2,1,1]]
         self.visited_list2 = [[0] * len(self.mat2[0]) for _ in range(len(self.mat2))]
         self.roten = 2
@@ -45,4 +47,5 @@ class Distance_To_One:
 
 
 d = Distance_To_One()                        
-d.bfs_for_distance(d.mat0, d.visited_list0, d.distance1)
+d.bfs_for_distance(d.mat0, d.visited_list0, d.distance0)
+d.bfs_for_distance(d.mat1, d.visited_list1, d.distance1)
