@@ -140,6 +140,25 @@ def create_sample_directed_graph2():
     graph.add_edge_in_list(2,3, directed= True)
     graph.add_edge_in_list(3,4, directed= True)
     graph.add_edge_in_list(4,5, directed= True)
+    # add below one for cycle
     # graph.add_edge_in_list(5,2, directed= True)
     
+    return graph
+
+def create_sample_DAG1():
+    no_of_nodes = 10
+
+    graph = Graph(no_of_nodes)
+    
+    graph.add_edge_in_list(1,2, directed= True)
+    graph.add_edge_in_list(1,3, directed= True)
+    graph.add_edge_in_list(2,6, directed= True)
+    graph.add_edge_in_list(3,4, directed= True)
+    graph.add_edge_in_list(4,5, directed= True)
+    graph.add_edge_in_list(5,7, directed= True)
+    graph.add_edge_in_list(6,7, directed= True)
+    graph.add_edge_in_list(7,8, directed= True)
+    graph.add_edge_in_list(7,9, directed= True)
+    graph.add_edge_in_list(8,9, directed= True)
+    graph.add_edge_in_list(9,10, directed= True)
     return graph
