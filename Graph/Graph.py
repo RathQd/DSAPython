@@ -87,3 +87,59 @@ def create_sample_graph_for_cycle():
     graph.add_edge_in_list(6,7)
 
     return graph
+
+def create_sample_graph_for_bipartite():
+    no_of_nodes = 12
+
+    graph = Graph(no_of_nodes)
+    
+    graph.add_edge_in_list(1,2)
+    graph.add_edge_in_list(2,3)
+    graph.add_edge_in_list(3,4)
+    graph.add_edge_in_list(3,6)
+    graph.add_edge_in_list(4,5)
+    graph.add_edge_in_list(4,6)
+    graph.add_edge_in_list(6,7)
+    graph.add_edge_in_list(5,8)
+    graph.add_edge_in_list(7,8)
+    graph.add_edge_in_list(8,9)
+    graph.add_edge_in_list(9,10)
+    graph.add_edge_in_list(10,11)
+    graph.add_edge_in_list(10,12)
+
+    return graph
+
+
+def create_sample_directed_graph1():
+    no_of_nodes = 12
+
+    graph = Graph(no_of_nodes)
+    
+    graph.add_edge_in_list(1,2, directed= True)
+    graph.add_edge_in_list(2,3, directed= True)
+    graph.add_edge_in_list(3,4, directed= True)
+    graph.add_edge_in_list(6,3, directed= True)
+    graph.add_edge_in_list(4,5, directed= True)
+    graph.add_edge_in_list(4,6, directed= True)
+    graph.add_edge_in_list(7,6, directed= True)
+    graph.add_edge_in_list(5,8, directed= True)
+    graph.add_edge_in_list(8,7, directed= True)
+    graph.add_edge_in_list(8,9, directed= True)
+    graph.add_edge_in_list(9,10, directed= True)
+    graph.add_edge_in_list(10,11, directed= True)
+    graph.add_edge_in_list(10,12, directed= True)
+
+    return graph
+
+def create_sample_directed_graph2():
+    no_of_nodes = 5
+
+    graph = Graph(no_of_nodes)
+    
+    graph.add_edge_in_list(1,2, directed= True)
+    graph.add_edge_in_list(2,3, directed= True)
+    graph.add_edge_in_list(3,4, directed= True)
+    graph.add_edge_in_list(4,5, directed= True)
+    # graph.add_edge_in_list(5,2, directed= True)
+    
+    return graph
