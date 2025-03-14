@@ -162,3 +162,19 @@ def create_sample_DAG1():
     graph.add_edge_in_list(8,9, directed= True)
     graph.add_edge_in_list(9,10, directed= True)
     return graph
+
+
+def create_sample_DAG2():
+    no_of_nodes = 6
+
+    graph = Graph(no_of_nodes)
+    
+    graph.add_edge_in_list(6,2, directed= True)
+    graph.add_edge_in_list(2,3, directed= True)
+    graph.add_edge_in_list(2,4, directed= True)
+    graph.add_edge_in_list(3,4, directed= True)
+    graph.add_edge_in_list(3,5, directed= True)
+    graph.add_edge_in_list(3,1, directed= True)
+    graph.add_edge_in_list(5,1, directed= True)
+    
+    return graph
