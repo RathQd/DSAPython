@@ -141,7 +141,7 @@ def create_sample_directed_graph2():
     graph.add_edge_in_list(3,4, directed= True)
     graph.add_edge_in_list(4,5, directed= True)
     # add below one for cycle
-    # graph.add_edge_in_list(5,2, directed= True)
+    graph.add_edge_in_list(5,2, directed= True)
     
     return graph
 

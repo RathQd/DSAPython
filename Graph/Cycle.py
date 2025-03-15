@@ -8,7 +8,7 @@ class Cycle:
     def __init__(self):
         # self.graph =  create_sample_graph_for_cycle()
         self.graph = create_sample_graph_for_component()
-        self.graphd = create_sample_directed_graph1()
+        self.graphd = create_sample_directed_graph2()
         self.visited_list = [NOT_VISITED for _ in range(self.graph.get_no_nodes()+1)]
         self.visited_listd = [NOT_VISITED for _ in range(self.graphd.get_no_nodes()+1)]
         self.path_visit_list = [NOT_VISITED for _ in range(self.graphd.get_no_nodes()+1)]
@@ -57,23 +57,27 @@ class Cycle:
                 path_visit_list[node[0]] = NOT_VISITED
         return False
     
-    def detect_cycle_directed_bfs(self, start_node, visited_list, path_visit_list):
-        q = Queue()
-        q.put(start_node)
-        visited_list[start_node] = VISITED
-        path_visit_list[start_node] = VISITED
-        while not q.empty():
-            element = q.get()
-            for node in self.graphd.graph_using_list[element]:
-                if visited_list[node[0]] == VISITED and path_visit_list[node[0]] == VISITED:
-                    return True
-                if visited_list[node[0]] == NOT_VISITED:
-                    q.put(node[0])
-                    visited_list[node[0]] = VISITED
-                    path_visit_list[node[0]] = VISITED                    
-            # path_visit_list[element] = NOT_VISITED
-        return False
+    def detect_cycle_directed_bfs_topology(self):
+        indegree_list = [NOT_VISITED for _ in range(self.graphd.get_no_nodes()+1)]
+        result = []
 
+        for n in range(1, len(indegree_list)):
+            for node in self.graphd.graph_using_list[n]:
+                indegree_list[node[0]] += 1        
+        q = Queue()
+
+        for i in range(1, len(indegree_list)):
+            if indegree_list[i] == 0:
+                q.put(i)
+
+        while not q.empty():
+            element = q.get()            
+            result.append(element)
+            for node in self.graphd.graph_using_list[element]:            
+                    indegree_list[node[0]] -= 1
+                    if indegree_list[node[0]] == 0:                                        
+                        q.put(node[0])                                                
+        return True if len(result) == len(indegree_list)-1 else False    
 
 
 
@@ -102,7 +106,7 @@ g2 = Cycle()
 print(g2.detect_cycle_directed_dfs(1, g2.visited_listd, g2.path_visit_list))
 
 g3 = Cycle()
-print(g3.detect_cycle_directed_bfs(1, g3.visited_listd, g3.path_visit_list))
+print(g3.detect_cycle_directed_bfs_topology())
 
 
             

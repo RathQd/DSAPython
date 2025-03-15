@@ -23,12 +23,12 @@ class SafeNode:
         visited_list[start_node] = NOT_VISITED
         return False
 
+def test_set1_safestate():        
+    g = SafeNode()
+    safe_node = []
+    for node in range(1, g.graphd.get_no_nodes()+1):
+        if g.visited_list[node] == NOT_VISITED:
+            if g.find_safe_node_with_dfs(node, g.visited_list, g.path_visit_list) == False:
+                safe_node.append(node)
+    print(safe_node)
 
-g = SafeNode()
-SafeNode = []
-for node in range(1, g.graphd.get_no_nodes()+1):
-    if g.visited_list[node] == NOT_VISITED:
-        if g.find_safe_node_with_dfs(node, g.visited_list, g.path_visit_list) == False:
-            SafeNode.append(node)
-
-print(SafeNode)
