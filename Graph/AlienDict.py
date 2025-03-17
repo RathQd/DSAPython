@@ -1,7 +1,9 @@
+"""
+creating the graph based on the occurence of the alphabet in the words, then using the topology sort of the graph getting the sequence.
+"""
+
+
 from queue import Queue
-
-
-
 class AlienDict:
     def __init__(self, no_of_words, no_of_alphabets,words_list):
         self.graph = [[] for _ in range(no_of_alphabets+1)]

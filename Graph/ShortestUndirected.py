@@ -23,8 +23,7 @@ class ShortestUndirected:
         self.distance_list[start[0]] = start[1]
         while not q.empty():
             element = q.get()                                        
-            for node in self.graph.graph_using_list[element[0]]:    
-                print("Child", node)            
+            for node in self.graph.graph_using_list[element[0]]:                    
                 if self.distance_list[node[0]] > (element[1]+ node[1]):
                     self.distance_list[node[0]] = (element[1] + node[1])                                
                     q.put([node[0], self.distance_list[node[0]]])

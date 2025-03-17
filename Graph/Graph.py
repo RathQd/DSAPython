@@ -200,7 +200,7 @@ def create_sample_DAG1_with_weight():
     graph.add_edge_in_list(7,4, weight_to_r=1, directed= True)
     return graph
 
-def create_sample_undirected_graph_with_weight():
+def create_sample1_undirected_graph_with_weight():
     no_of_nodes = 8
     graph = Graph(no_of_nodes)
 
@@ -215,4 +215,19 @@ def create_sample_undirected_graph_with_weight():
     graph.add_edge_in_list(5,7)
     graph.add_edge_in_list(7,8)
     graph.add_edge_in_list(6,7)
+    return graph
+
+def create_sample2_undirected_graph_with_weight():
+    no_of_nodes = 6
+    graph = Graph(no_of_nodes)
+
+    graph.add_edge_in_list(0,1, weight=4)
+    graph.add_edge_in_list(0,2, weight=4)
+    graph.add_edge_in_list(1,2, weight=2)
+    graph.add_edge_in_list(2,3, weight=3)
+    graph.add_edge_in_list(2,5, weight=6)
+    graph.add_edge_in_list(2,4, weight=1)
+    graph.add_edge_in_list(3,5, weight=2)
+    graph.add_edge_in_list(4,5, weight=3)
+    
     return graph
