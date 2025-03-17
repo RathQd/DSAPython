@@ -1,6 +1,9 @@
 
+"Dijkstra for shortest distance, using Queue instead of PriorityQueue as we will always get the distance in increasing order."
+"which will decrease time complexity to from log(N) to O(1) for accessing the Q for insert and fetch."
 
-from queue import PriorityQueue
+
+from queue import PriorityQueue, Queue
 class ShortestBinaryMaze():
     def __init__(self):
         
@@ -18,7 +21,8 @@ class ShortestBinaryMaze():
         print(start)
         maxR = len(self.graph)
         maxC = len(self.graph[0])
-        pq = PriorityQueue()
+        # pq = PriorityQueue()
+        pq = Queue()
         pq.put([0, start])
         self.distance_mat[start[0]][start[1]] = 0
         while not pq.empty():
@@ -37,17 +41,13 @@ class ShortestBinaryMaze():
                             self.distance_mat[nr][nc] = new_distance
                             pq.put([new_distance, [nr, nc]])                            
         return -1
-
         
 def test_set1_shortest_distance():
     s = ShortestBinaryMaze()
     start = [0,1]
-    end = [3, 1]
+    end = [1, 2]
     distance = s.dijkstra_bfs(start, end)
     print(f"Shortest Distance from {start} to {end} is : ", distance)
-
-
-
 
 
 test_set1_shortest_distance()
