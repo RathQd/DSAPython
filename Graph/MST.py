@@ -1,11 +1,12 @@
 from queue import PriorityQueue
-
+import DisjointSet as Ds
 
 NOT_VISITED = 0
 VISITED = 1
 
 class MST:
     def __init__(self, no_of_nodes, edges):
+        self.edges = edges
         self.no_of_nodes = no_of_nodes        
         self.graph = [[] for _ in range(no_of_nodes)]
         for edge in edges:
@@ -14,7 +15,7 @@ class MST:
             self.graph[node2].append([node1, weight])
         self.visited_list =[NOT_VISITED for _ in range(no_of_nodes)]        
     
-    def find_MST(self):
+    def find_MST_with_prims(self):
         mst_edges = []
         weight_sum_mst = 0
         pq = PriorityQueue()
@@ -33,8 +34,22 @@ class MST:
                     weight_sum_mst += child_weight
 
         return weight_sum_mst, mst_edges
+    
+    def find_MST_with_krushkal(self):
+        mst_sum = 0
+        self.edges = sorted(self.edges, key= lambda x: x[2])        
+        mst_result = []
+        ds = Ds.DisjointSet(self.no_of_nodes)        
+        for edge in self.edges:             
+            node1, node2, weight = edge
+            if ds.find_parent(node1) != ds.find_parent(node2):
+                ds.union_of_node_with_size(node1, node2)
+                mst_result.append([node1, node2, weight])                
+                mst_sum += weight
+        return (mst_sum, mst_result)
+        
 
-def test_set1_MST():
+def test_set1_MST_prims():
     edges = [
         [0,1,2],
         [0,3,6],
@@ -45,7 +60,25 @@ def test_set1_MST():
     ]
     no_of_nodes = 5    
     mst = MST(no_of_nodes, edges)
-    min_weight_mst = mst.find_MST()
-    print(min_weight_mst)    
+    min_weight_mst, mst_tree = mst.find_MST_with_prims()
+    print(min_weight_mst, mst_tree)    
 
-test_set1_MST() 
+
+
+def test_set1_MST_krushkal():
+    edges = [
+        [0,1,2],
+        [0,3,6],
+        [3,1,8],
+        [1,2,3],
+        [1,4,5],
+        [4,2,7]
+    ]
+    no_of_nodes = 5    
+    mst = MST(no_of_nodes, edges)
+    min_weight_mst, mst_tree = mst.find_MST_with_krushkal()
+    print(min_weight_mst, mst_tree)    
+
+
+test_set1_MST_prims() 
+test_set1_MST_krushkal()
