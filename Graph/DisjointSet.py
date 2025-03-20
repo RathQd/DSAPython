@@ -44,9 +44,6 @@ class DisjointSet:
             return False
 
 
-
-
-
 def test_set1_disjoint_set_with_rank():
     print("Disjoint Set DS with Rank")
     no_of_nodes = 7
