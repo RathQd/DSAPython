@@ -149,15 +149,6 @@ class Traverse:
         print("In_Order", in_order)
         print("Post_Order", post_order)
 
-
-
-
-
-
-
-
-
-
 def traverse_tree():
     traverse =  Traverse()
     print("BFS Order")

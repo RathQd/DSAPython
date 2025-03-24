@@ -20,4 +20,7 @@ def create_binary_tree():
     root.right.left.right = Node(12)
     root.right.right.left = Node(13)
     root.right.right.right = Node(14)    
+    # root.right.right.right.left = Node(15)    
+    root.right.right.right.right = Node(16)    
+    root.right.right.right.right.left = Node(17)    
     return root
