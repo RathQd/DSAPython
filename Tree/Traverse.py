@@ -174,6 +174,29 @@ class Traverse:
         print("Pre_Order", pre_order)
         print("In_Order", in_order)
         print("Post_Order", post_order)
+    
+    def vertical_order_traverse(self, root):
+        vertical_nodes_dict = {}
+        q = Queue()
+        q.put([root, 0, 0])
+        while not q.empty():
+            l = q.qsize()
+            for _ in range(l):
+                node, r, c = q.get()            
+                if r not in vertical_nodes_dict.keys():
+                    vertical_nodes_dict[r] = []
+                    vertical_nodes_dict[r].append(node.data)
+                else:
+                    vertical_nodes_dict[r].append(node.data)                
+                if node.left:                    
+                    q.put([node.left, r-1, c+1])
+                if node.right:                    
+                    q.put([node.right, r+1, c+1])        
+        
+        for k, v in sorted(vertical_nodes_dict.items()):            
+            # print(k,v)
+            for node in sorted(v):                
+                print(node, end = " ")
 
 def traverse_tree():
     traverse =  Traverse()
@@ -203,6 +226,9 @@ def traverse_tree():
     print()
     print("Level order Zig Zag")
     traverse.level_order_zig_zag(traverse.tree)
+    print()
+    print("Vertical Order Traverse")
+    traverse.vertical_order_traverse(traverse.tree)
 
 
 traverse_tree()
