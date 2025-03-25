@@ -75,7 +75,8 @@ class Traverse:
                 result_order.append(list(reversed(level_nodes)))
         
         for order in result_order:
-            print(order, end = "")          
+            for node in order:
+                print(node, end = " ")
                         
     def dfs_traverse(self, root):        
         if root == None:
