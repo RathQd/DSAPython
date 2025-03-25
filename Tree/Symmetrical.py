@@ -21,7 +21,6 @@ class Symmetrical:
             return True
 
 
-
 def is_tree_symmetric():
     s = Symmetrical()
     result = s.is_symmetric(s.tree)
