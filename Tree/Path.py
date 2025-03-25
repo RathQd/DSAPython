@@ -23,10 +23,8 @@ class Path:
         path = self.dfs_path(root, destination, path)        
         return path if path else False
 
-
 def find_path():
     p = Path()
     return p.find_path_from_root_to_node(p.tree, 9)        
-
 
 print(find_path())
