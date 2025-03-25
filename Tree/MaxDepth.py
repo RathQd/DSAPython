@@ -33,15 +33,11 @@ class MaxDepth:
         right_side = self.find_max_depth_of_binary_tree_recursive(node.right)
         return 1 + max(left_side, right_side)    
 
-
-
-
 def find_max_depth_of_binary_tree():
     max_depth = MaxDepth()
     depth1 = max_depth.find_max_depth_of_binary_tree_level_order(max_depth.tree)
     print("Max Depth of the Tree Level Order", depth1)
     depth2 = max_depth.find_max_depth_of_binary_tree_recursive(max_depth.tree)
     print("Max Depth of the Tree Recursive", depth2)
-
 
 find_max_depth_of_binary_tree()
