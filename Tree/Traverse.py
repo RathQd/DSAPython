@@ -51,6 +51,31 @@ class Traverse:
                 level_elements.append(node.data)
             node_level_wise.append(level_elements)
         print(node_level_wise)
+    
+    def level_order_zig_zag(self, root):
+        q = Queue()
+        q.put(root)
+        turn = 0
+        result_order = []
+        while not q.empty():
+            l = q.qsize()            
+            level_nodes = []
+            for _ in range(l):
+                node = q.get()
+                level_nodes.append(node.data)
+                if node.left:
+                    q.put(node.left)
+                if node.right:
+                    q.put(node.right)
+            if turn == 0:
+                turn = 1
+                result_order.append(level_nodes)
+            else:
+                turn = 0
+                result_order.append(list(reversed(level_nodes)))
+        
+        for order in result_order:
+            print(order, end = "")          
                         
     def dfs_traverse(self, root):        
         if root == None:
@@ -174,6 +199,9 @@ def traverse_tree():
     print()
     print("All Three Traversal")
     traverse.all_three_orders_traverse(traverse.tree)
+    print()
+    print("Level order Zig Zag")
+    traverse.level_order_zig_zag(traverse.tree)
 
 
 traverse_tree()
