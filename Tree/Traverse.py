@@ -231,4 +231,4 @@ def traverse_tree():
     traverse.vertical_order_traverse(traverse.tree)
 
 
-traverse_tree()
+# traverse_tree()
