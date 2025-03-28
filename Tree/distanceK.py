@@ -50,8 +50,7 @@ class DistanceK:
             l = q.qsize()
             nodes_at_k_steps = []            
             for _ in range(l):                
-                node = q.get()
-                print(node.data)
+                node = q.get()                
                 nodes_at_k_steps.append(node.data)
                 if node.left and node.left.data not in visited_dict.keys():
                     visited_dict[node.left.data] = 1                    
@@ -68,7 +67,7 @@ class DistanceK:
             cnt += 1
             if cnt == k:
                 return nodes_at_k_steps
-        return nodes_at_k_steps
+        return nodes_at_k_steps, cnt
 
 
 
@@ -76,7 +75,7 @@ def node_at_distance_k():
     d = DistanceK()
     k = 2
     d.create_parent_links(d.tree)
-    print(d.find_nodes_at_distance_k(d.tree, 5, 'b'))
+    print(d.find_nodes_at_distance_k(d.tree, 6, 'b'))
 
 
 node_at_distance_k()
