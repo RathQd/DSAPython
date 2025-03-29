@@ -32,9 +32,11 @@ class Traverse:
         while not q.empty():
             node = q.get()            
             print(node.data, end=" ")
-            if node.right != None and node.left != None:
-                q.put(node.left)
-                q.put(node.right)         
+            if node.left != None:
+                q.put(node.left)   
+            if node.right != None:
+                q.put(node.right)
+                  
     
     def level_order_store(self, root):
         q = Queue()
