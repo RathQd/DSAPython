@@ -123,3 +123,30 @@ def create_binary_alphabet_tree():
     root.right.right.right = Node('o')   
 
     return root
+
+
+def create_binary_search_tree():
+    root = Node(8)
+    
+    root.left = Node(5)
+    root.right = Node(12)
+    
+    root.left.left = Node(3)
+    root.left.right = Node(7)
+    
+    root.right.left = Node(10)
+    root.right.right = Node(13)        
+
+    # root.left.left.left = Node('h')
+    # root.left.left.right = Node('i')
+
+    root.left.right.left = Node(6)
+    # root.left.right.right = Node('k')
+
+    # root.right.left.left = Node('l')
+    root.right.left.right = Node(11)
+
+    # root.right.right.left = Node('n')   
+    # root.right.right.right = Node('o')   
+
+    return root
