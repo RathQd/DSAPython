@@ -5,6 +5,9 @@ class AddNodeBST:
         self.tree = create_binary_search_tree()        
 
     def add_node(self, root, key):
+        root_copy = root
+        if root == None:
+            return Node(key)
         while root:
             if root.data > key and root.left == None:
                 root.left = Node(key)
@@ -13,7 +16,8 @@ class AddNodeBST:
             if root.data > key:
                 root = root.left
             else:
-                root = root.right
+                root = root.right        
+        return root_copy
 
 def add_node_in_bst():
     a = AddNodeBST()
