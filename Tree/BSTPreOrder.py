@@ -21,8 +21,16 @@ class BSTPreOrder:
                 cur = cur.right
             else:
                 cur = cur.left
-
-
+    
+    def create_BST_from_pre_order1(self, pre_order, i, upper_bound):                
+        if i[0] == len(pre_order) or pre_order[i[0]] > upper_bound:
+            return None
+        root = Node(pre_order[i[0]])
+        i[0] += 1
+        root.left = self.create_BST_from_pre_order1(pre_order, i, root.data)
+        root.right = self.create_BST_from_pre_order1(pre_order, i, upper_bound)
+        return root
+        
 
 def create_BST_from_pre_order():
     pre_order = [8, 5, 1, 7, 10, 12]
@@ -43,15 +51,15 @@ def create_BST_from_pre_and_in_order():
     b.tree = treeOrder.create_tree_with_in_and_pre_order(0, len(in_order)-1, 0, len(pre_order)-1)
     trav.dfs_traverse(b.tree)
 
+def create_BST_from_pre_and_in_order1():
+    b = BSTPreOrder()
+    trav = Traverse()    
+    pre_order = [8, 5, 1, 7, 10, 12]
+    index = [0,]
+    b.tree = b.create_BST_from_pre_order1(pre_order, index, float('inf'))        
+    trav.dfs_traverse(b.tree)
 
-create_BST_from_pre_and_in_order()
-
-
-
-
-
-
-
+create_BST_from_pre_and_in_order1()
 # create_BST_from_pre_order()        
 
 
